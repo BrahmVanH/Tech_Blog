@@ -1,0 +1,30 @@
+<header class="masthead" style="background-image: url('assets/img/home-bg.jpg');">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-lg-8 mx-auto position-relative">
+                <div class="site-heading">
+                    <h1 style="font-size: 56px;">&lt;TechTalk/&gt;</h1><span class="subheading">An open blog-spot for
+                        all things tech</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+{{#if blogs.length}}
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 col-lg-8">
+            {{#each fiveBlogs as |blog|}}
+            <div class="post-preview">
+                    <a href=`/api/blog/{{blog.id}}`>
+                        <h2 class="post-title">{{blog.post_title}}</h2>
+                    </a>
+                    <p class="post-meta">Posted by&nbsp;<a href="#">{{blog.user.name}} on {{blog.date_id}}</a></p>
+                </div>
+            {{/each}}
+
+        </div>
+    </div>
+</div>
