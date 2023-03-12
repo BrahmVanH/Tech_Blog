@@ -19,7 +19,7 @@ router.get("/", async (req, res) => {
     const blogs = blogData.map((blog) => blog.get({ plain: true }));
     const fiveBlogs = blogs.slice(0, 6);
 
-    res.render("homepage", {
+    res.render('homepage', {
       fiveBlogs,
     });
   } catch (err) {

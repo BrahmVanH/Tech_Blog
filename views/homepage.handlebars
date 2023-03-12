@@ -11,19 +11,8 @@
     </div>
 </header>
 
-{{#if !blogs.length}}
-<div class="container">
-    <div class="row">
-        <div class="col-md-10 col-l-8">
-            <div class="post-preview">
-                <h2 class="post-title">No posts yet. <span href="/api/blog/post">Create your first post!</span></h2>
-            </div>
-        </div>
-    </div>
-</div>
-{{/if}}
 
-{{#if blogs.length}}
+{{#if fiveBlogs.length}}
 <div class="container">
     <div class="row">
         <div class="col-md-10 col-lg-8">
@@ -36,6 +25,16 @@
                 </div>
             {{/each}}
 
+        </div>
+    </div>
+</div>
+{{else}}
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 col-l-8">
+            <div class="post-preview">
+                <h2 class="post-title">No posts yet. <span href="/api/blog/post">Create your first post!</span></h2>
+            </div>
         </div>
     </div>
 </div>
