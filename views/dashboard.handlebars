@@ -1,3 +1,4 @@
+{{#if loggedIn}}
 {{#if !blogs.length}}
 <div class="container">
     <div class="row">
@@ -16,14 +17,15 @@
         <div class="col-md-10 col-lg-8">
             {{#each fiveBlogs as |blog|}}
             <div class="post-preview">
-                    <a href=`/api/blog/{{blog.id}}`>
-                        <h2 class="post-title">{{blog.post_title}}</h2>
-                    </a>
-                    <p class="post-meta">Posted by&nbsp;<a href="#">{{blog.user.name}} on {{blog.date_id}}</a></p>
-                </div>
+                <a href=`/api/blog/{{blog.id}}`>
+                    <h2 class="post-title">{{blog.post_title}}</h2>
+                </a>
+                <p class="post-meta">Posted by&nbsp;<a href="#">{{blog.user.name}} on {{blog.date_id}}</a></p>
+            </div>
             {{/each}}
-
         </div>
     </div>
 </div>
+{{else}}
+<a href="/login">You must login first to view this page</a>
 {{/if}}
