@@ -20,11 +20,33 @@ router.get("/", async (req, res) => {
     const fiveBlogs = blogs.slice(0, 6);
 
     res.render('homepage', {
-      fiveBlogs,
+      ...fiveBlogs,
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
+
+router.get('/dashboard', async (req, res) => {
+  try {
+    const userBlogData = await Blog.findAll({
+     /* where: {
+        user_id: req.session.user_id==
+      }, */
+      include: [{
+        model: Comment,
+        attributes: ["content", "user_id"],
+      }],
+    });
+
+    const userBlogs = userBlogData.map((userBlog) => userBlog.get({ plain: true }));
+
+    res.render('dashboard', {
+      ...userBlogs,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+})
 
 module.exports = router;
