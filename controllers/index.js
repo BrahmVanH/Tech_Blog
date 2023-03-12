@@ -1,11 +1,11 @@
 const router = require("express").Router();
 const apiRoutes = require("./api");
 
-router.use("/", homeRoutes);
-router.use("/api", apiRoutes);
+router.use('/', homepageRoutes);
+router.use('/api', apiRoutes);
 
-router.use((req, res) => {
+/*router.use((req, res) => {
   res.send("Nothing to see here");
-});
+}); */
 
 module.exports = router;
