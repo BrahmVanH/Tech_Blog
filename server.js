@@ -1,10 +1,31 @@
 const express = require("express");
+const session = require("express-session");
 const routes = require("./routes");
 const sequelize = require("./config/connection");
 // import sequelize connection
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+
+const sess = {
+  secret: [
+    "veryimportantsecret",
+    "notsoimportantsecret",
+    "highlyprobablysecret",
+  ],
+  cookie: {
+    httpOnly: true,
+    secure: true,
+    maxAge: 600000,
+  },
+  resave: false,
+  saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize,
+  }),
+};
+
+app.use(session(sess));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
