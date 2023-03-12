@@ -2,3 +2,4 @@
 node_modules
 .DS_store
 views_ignored
+test-server_ignored
