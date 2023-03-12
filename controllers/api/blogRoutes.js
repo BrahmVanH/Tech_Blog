@@ -53,4 +53,6 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-router.post("/post"); // Suggested route endpoint using in homepage hbs
+//router.post("/post"); // Suggested route endpoint using in homepage hbs
+
+module.exports = router;
